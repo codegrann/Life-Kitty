@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function DonateButton() {
+function PayPalButton() {
   useEffect(() => {
     // Load the PayPal SDK script dynamically
     const script = document.createElement("script");
@@ -45,4 +45,4 @@ function DonateButton() {
   );
 }
 
-export default DonateButton;
+export default PayPalButton;
