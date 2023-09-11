@@ -1,48 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
-function PayPalButton() {
+export default function Paypal() {
+  const paypal = useRef();
+
   useEffect(() => {
-    // Load the PayPal SDK script dynamically
-    const script = document.createElement("script");
-    script.src = "https://www.paypal.com/sdk/js?client-id=J29BV2FFYUDQ8";
-    script.async = true;
-
-    script.onload = () => {
-      // Initialize the PayPal Button
-      window.paypal
-        .Buttons({
-          createOrder: function (data, actions) {
-            // Set up the donation amount and currency
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: "10.00", // Change this to the desired donation amount
-                  },
+    window.paypal
+      .Buttons({
+        createOrder: (data, actions, err) => {
+          return actions.order.create({
+            intent: "CAPTURE",
+            purchase_units: [
+              {
+                description: "Donate and Save Lives",
+                amount: {
+                  currency_code: "USD",
+                  value: 2.0,
                 },
-              ],
-            });
-          },
-          onApprove: function (data, actions) {
-            // Capture the payment and handle the donation confirmation
-            return actions.order.capture().then(function (details) {
-              alert("Donation completed successfully!");
-            });
-          },
-        })
-        .render("#paypal-button-container"); // Replace with the ID of your button container
-    };
-
-    document.body.appendChild(script);
+              },
+            ],
+          });
+        },
+        onApprove: async (data, actions) => {
+          const order = await actions.order.capture();
+          console.log(order);
+        },
+        onError: (err) => {
+          console.log(err);
+        },
+      })
+      .render(paypal.current);
   }, []);
 
   return (
     <div>
-      <div id="paypal-button-container">
-        <button>Send</button>
-      </div>
+      <div ref={paypal}></div>
     </div>
   );
 }
-
-export default PayPalButton;
