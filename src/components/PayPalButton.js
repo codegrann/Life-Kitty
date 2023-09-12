@@ -22,6 +22,7 @@ export default function Paypal() {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
+          alert("Donation successfull. Thank you.");
           console.log(order);
         },
         onError: (err) => {
@@ -33,7 +34,13 @@ export default function Paypal() {
 
   return (
     <div>
-      <div ref={paypal}></div>
+      <div
+        ref={paypal}
+        style={{
+          height: "140px",
+          overflowY: "hidden",
+        }}
+      ></div>
     </div>
   );
 }

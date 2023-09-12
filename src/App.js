@@ -7,6 +7,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Welcome to this charity kitty</h1>
+      <h3>Donate $2 today and save a soul</h3>
       {checkout ? (
         <PayPalButton />
       ) : (
@@ -15,7 +17,7 @@ function App() {
             setCheckOut(true);
           }}
         >
-          Checkout
+          Donate
         </button>
       )}
     </div>
