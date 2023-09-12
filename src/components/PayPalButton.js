@@ -1,7 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import jsPDF from "jspdf";
+import Invoice from "./Invoice";
 
 export default function Paypal() {
   const paypal = useRef();
+  const [transactionData, setTransactionData] = useState(null);
 
   useEffect(() => {
     window.paypal
@@ -23,6 +26,12 @@ export default function Paypal() {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           alert("Donation successfull. Thank you.");
+          setTransactionData({
+            transactionId: order.id,
+            amount: order.purchase_units[0].amount.value,
+            status: order.status,
+            date: order.update_time,
+          });
           console.log(order);
         },
         onError: (err) => {
@@ -41,6 +50,7 @@ export default function Paypal() {
           overflowY: "hidden",
         }}
       ></div>
+      {transactionData && <Invoice transactionData={transactionData} />}
     </div>
   );
 }
