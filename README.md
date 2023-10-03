@@ -40,11 +40,11 @@ If you want to set up a local development environment, follow these steps:
 
 1. Clone this repository to your local machine using Git.
 
-- `git clone <*remote url>`
+- `git clone <remote url>`
 
 2. Install any dependencies.
 
-- `***npm install/npm i`
+- `npm install/npm i`
 
 3. Configure your PayPal API credentials.
 
@@ -56,13 +56,16 @@ If you want to set up a local development environment, follow these steps:
 
 5. Access the website through your browser
 
-- `http://localhost:<port>.`
+- `http://localhost:<port no.>.`
 
 ### Usage
 
 - The application has one page, with a donate button in the welcome page.
+  ![public/f1.png](public/dis1.png)
 - Clicking on the button displays the PayPal button with PayPal & Debit Card modes of payment.
+  ![public/f2.png](public/dis2.png)
 - Clicking PayPal option triggers a login page. Login with your PayPal developer account.
+  ![public/f1.png](public/dis3.png)
 - Default donation amount = $2. Confirm payment.
 
 ### Contributing
