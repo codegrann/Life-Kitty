@@ -10,10 +10,8 @@ Welcome to this Payment Integration Website, which allows you to seamlessly acce
 - [Tools Used](#tools-used)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
-- [Testing](#testing)
-- [Security](#security)
 - [Contributing](#contributing)
-- [License](#license)
+<!-- - [License](#license) -->
 
 ### Navigation
 
@@ -31,10 +29,9 @@ To navigate the Payment Integration Website, follow these steps:
 The following technologies and tools were used in the development of this website:
 
 - **HTML/CSS/JavaScript:** The core web technologies used for building the frontend.
-- **Libraries & Frameworks:** React.js, jsPDF.
+- **Libraries & Frameworks:** React.js, jsPDF, nodemailer.
 - **PayPal Integration:** The PayPal payment gateway for processing payments securely.
-- **Server Backend:** If applicable, mention any server-side technologies or frameworks used.
-- **Version Control:** Git.$ GitHub.
+- **Version Control:** Git & GitHub.
 - **Deployment:** Vercel.
 
 ### Setup and Installation
@@ -42,31 +39,36 @@ The following technologies and tools were used in the development of this websit
 If you want to set up a local development environment, follow these steps:
 
 1. Clone this repository to your local machine using Git.
-2. Install any dependencies (if applicable).
-3. Configure your PayPal API credentials (if required).
-4. Start the development server (if applicable).
-5. Access the website through your browser at `http://localhost:port` (replace `port` with the actual port number).
+
+- `git clone <*remote url>`
+
+2. Install any dependencies.
+
+- `***npm install/npm i`
+
+3. Configure your PayPal API credentials.
+
+- `Create a developer account on paypal for testing`
+
+4. Start the development server.
+
+- `npm start/npm run start`
+
+5. Access the website through your browser
+
+- `http://localhost:<port>.`
 
 ### Usage
 
-Provide instructions on how to use the website effectively, including any special features or user interactions.
-
-### Testing
-
-Explain how to run tests or provide a link to the testing documentation.
-
-### Security
-
-Ensure that the website follows best practices for security. Mention any security features or measures in place to protect user data and transactions.
+- The application has one page, with a donate button in the welcome page.
+- Clicking on the button displays the PayPal button with PayPal & Debit Card modes of payment.
+- Clicking PayPal option triggers a login page. Login with your PayPal developer account.
+- Default donation amount = $2. Confirm payment.
 
 ### Contributing
 
-Explain how others can contribute to the project if it's open source. Include guidelines for reporting issues or submitting pull requests.
+- Be free to open any issue on the repositiory.
 
-### License
-
-Specify the project's license, such as MIT, Apache, or another open-source license.
+<!-- ### License -->
 
 ---
-
-Feel free to modify this template to suit the specific details of your website and its development environment. Providing clear instructions and information in your `README.md` will help users and developers understand and use your payment integration website effectively.
